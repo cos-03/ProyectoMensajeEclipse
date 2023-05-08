@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ListaUsuarios>
+    <Usuario id="Juan">
+        <name>Juan</name>
+        <contrasena>1234JUAN</contrasena>
+        <estado>En linea</estado>
+    </Usuario>
+    <Usuario id="David">
+        <name>David</name>
+        <contrasena>DAVID123</contrasena>
+        <estado>En linea</estado>
+    </Usuario>
+    <Usuario id="Cortes">
+        <name>Cortes</name>
+        <contrasena>4567CORTES</contrasena>
+        <estado>En linea</estado>
+    </Usuario>
+    <Usuario id="Cortes2">
+        <name>Cortes2</name>
+        <contrasena>12345678</contrasena>
+        <estado>En linea</estado>
+    </Usuario>
+</ListaUsuarios>
