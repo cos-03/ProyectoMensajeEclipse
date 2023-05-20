@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MensajeController1">
+	<children>
+		<HBox prefHeight="500.0" prefWidth="800.0">
+			<children>
+				<Pane fx:id="paneUsuarios" prefHeight="500.0" prefWidth="300.0" style="-fx-background-color: #1154c1;">
+					<children>
+						<ScrollPane fx:id="scrollPaneUsuario" cacheShape="false" hbarPolicy="NEVER" layoutX="14.0" layoutY="79.0" prefHeight="407.0" prefWidth="270.0" style="-fx-background: #ffffff;">
+							<content>
+								<FlowPane fx:id="userList" prefHeight="36.0" prefWidth="267.0" />
+							</content>
+							<cursor>
+								<Cursor fx:constant="DEFAULT" />
+							</cursor>
+						</ScrollPane>
+						<Label alignment="CENTER" layoutX="90.0" layoutY="33.0" prefHeight="31.0" prefWidth="120.0" text="Usuarios" textFill="WHITE">
+							<font>
+								<Font size="21.0" />
+							</font>
+						</Label>
+					</children>
+				</Pane>
+				<Pane fx:id="panelMensaje" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #64a6b1;">
+					<children>
+						<Pane layoutY="389.0" prefHeight="111.0" prefWidth="500.0" style="-fx-background-color: #1154c1;">
+							<children>
+								<Button fx:id="botonEnviar" layoutX="370.0" layoutY="33.0" mnemonicParsing="false" onAction="#eventoBotonMensaje" prefHeight="46.0" prefWidth="101.0" text="Enviar" />
+								<TextField fx:id="mensaje" layoutX="19.0" layoutY="20.0" onAction="#eventoBotonMensaje" prefHeight="74.0" prefWidth="348.0" promptText="Escriba su mensaje aqui...." />
+							</children>
+						</Pane>
+						<ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" hmax="0.0" layoutX="9.0" layoutY="75.0" prefHeight="308.0" prefWidth="473.0">
+							<content>
+								<FlowPane fx:id="mensajeList" prefHeight="45.0" prefWidth="480.0">
+									<padding>
+										<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+									</padding>
+								</FlowPane>
+							</content>
+							<padding>
+								<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+							</padding>
+						</ScrollPane>
+						<Label fx:id="chat_name" alignment="CENTER" layoutX="162.0" layoutY="37.0" prefHeight="20.0" prefWidth="174.0" text="Chat_Name" textFill="#f8f8f8">
+							<font>
+								<Font size="21.0" />
+							</font>
+						</Label>
+					</children>
+				</Pane>
+			</children>
+		</HBox>
+		<Pane prefHeight="40.0" prefWidth="800.0" style="-fx-background-color: #1154c1;">
+			<children>
+				<Button layoutX="648.0" layoutY="5.0" mnemonicParsing="false" onAction="#eventoSalir" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #1115bf;" text="Cerrar sesión" textFill="WHITE" />
+            <MenuButton layoutX="24.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #1115bf;" text="Menu" textFill="WHITE">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#EventoModificarCuenta" text="Modificar Cuenta" />
+                <MenuItem fx:id="EliminarCuenta" mnemonicParsing="false" onAction="#EventoEliminarCuenta" text="Eliminar cuenta" />
+              </items>
+            </MenuButton>
+			</children>
+		</Pane>
+	</children>
+</AnchorPane>

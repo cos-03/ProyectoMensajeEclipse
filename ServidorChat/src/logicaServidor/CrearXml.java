@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logicaServidor;
 
 import java.io.File;
@@ -27,8 +22,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 /**
- *
- * @author ACER
+ * Crea los archivos xml
+ * @author Felipe Valencia
  */
 public class CrearXml {
 
@@ -53,7 +48,10 @@ public class CrearXml {
         }
 
     }
-
+    
+    /*
+     * Crea el archivo xml con los datos de la lista de chats
+     */
     public void crearListaChat(ArrayList<Chat> lista) throws TransformerConfigurationException, TransformerException {
         Element rootElemen = doc.createElement("listaChat");
         doc.appendChild(rootElemen);
@@ -93,30 +91,10 @@ public class CrearXml {
         t.transform(s, r);
         System.out.println("Proceso completo archivo actualizado");
     }
-
-    public void crearUsuario(Usuario user) throws TransformerConfigurationException, TransformerException {
-        Element rootElement = doc.createElement("Usuario");
-        doc.appendChild(rootElement);
-        rootElement.setAttribute("id", "" + user.getId());
-        Element name = doc.createElement("name");
-        name.setTextContent(user.getName());
-
-        Element contrasena = doc.createElement("imagen");
-        contrasena.setTextContent(user.getContrasena());
-        rootElement.appendChild(contrasena);
-        rootElement.appendChild(name);
-        
-        Element estado = doc.createElement("estado");
-        estado.setTextContent(user.getEstado());
-        rootElement.appendChild(estado);
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer t = tf.newTransformer();
-        DOMSource s = new DOMSource(doc);
-        StreamResult r = new StreamResult(new File(ruta));
-        t.transform(s, r);
-        System.out.println("Proceso completo archivo actualizado");
-    }
-
+    
+    /*
+     * Crea el archivo xml con los datos de la lista de Usuarios
+     */
     public void crearListaUsuario(ArrayList<Usuario> lista) throws TransformerConfigurationException, TransformerException {
         Element rootElement = doc.createElement("ListaUsuarios");
         doc.appendChild(rootElement);
@@ -128,9 +106,9 @@ public class CrearXml {
             Element name = doc.createElement("name");
             name.setTextContent(user.getName());
             usuario.appendChild(name);
-            Element imagen = doc.createElement("imagen");
-            imagen.setTextContent(user.getImage());
-            usuario.appendChild(imagen);
+            Element contresena = doc.createElement("contrasena");
+            contresena.setTextContent(user.getContrasena());
+            usuario.appendChild(contresena);
 
             Element estado = doc.createElement("estado");
             estado.setTextContent(user.getEstado());

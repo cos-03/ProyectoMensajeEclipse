@@ -1,29 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logicaServidor;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
- *
- * @author ACER
+ *Esta clase representa a los diferentes personas del chat
+ *@author Felipe Valencia
  */
-public class Usuario implements Serializable {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Usuario{
+
 	private String name;
 	private String contrasena;
     private String ip;
-    private String image;
     private String id;
     private String estado;
-    private ArrayList<Mensaje> historialMensajes;
 
     
     
@@ -46,11 +35,6 @@ public class Usuario implements Serializable {
     public String getId() {
         return id;
     }
-
-    public String getImage() {
-        return image;
-    }
-
     public String getEstado() {
         return estado;
     }
@@ -69,7 +53,12 @@ public class Usuario implements Serializable {
     
     
     
-    public void setIp(String ip) {
+    public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public void setIp(String ip) {
 		this.ip = ip;
 	}
 

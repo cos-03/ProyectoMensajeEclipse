@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logicaServidor;
 
-import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
- * @author ACER
+ * Mensajes del chat
+ * @author Felipe Valencia
  */
 public class Mensaje{
     private String remitente;
@@ -30,7 +27,9 @@ public class Mensaje{
     public Mensaje(String id, String contenido,boolean vist) {
         this.codigoChat = id;
         this.contenido = contenido;
-        this.fecha =""+new Timestamp(new Date().getTime());
+        DateFormat formato= new SimpleDateFormat("yyyy/MM/dd_hh/mm/ss");
+        String f =""+formato.format(new Date().getTime());
+        this.fecha=f;
         this.visto= vist;
     }
 
@@ -70,13 +69,8 @@ public class Mensaje{
         this.visto = visto;
     }
     
-    
-    
-    
-
-    @Override
-    public String toString() {
-        return "\n Mensaje{" + "remitente=" + remitente + ", destinatario=" + destinatario + ", codigoChat=" + codigoChat + ", contenido=" + contenido + ", fecha=" + fecha + "} \n";
+    public String darMensaje() {
+        return "#:"+remitente+";"+contenido+";"+destinatario+";"+fecha+";"+visto;
     }
 
     

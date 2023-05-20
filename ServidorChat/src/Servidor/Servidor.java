@@ -14,7 +14,7 @@ import org.xml.sax.SAXException;
 
 /**
  * Servidor para el chat.
- *
+ * @author Felipe Valencia
  */
 public class Servidor {
 
@@ -23,6 +23,9 @@ public class Servidor {
 	private ArrayList<Chat> listaChatTotal;
 	private ArrayList<Usuario> listaUsuarios;
 
+	/*
+	 * Actualiza los datos desde los archivos xml
+	 */
 	private void leerArchios() {
 		LeerXml l, l2;
 		try {
@@ -40,9 +43,12 @@ public class Servidor {
 		}
 	}
 
+	/**
+	 * Este metodo inicia el servidor
+	 */
 	public void menu() {
 		int puerto = 5560;
-		int maximoConexiones = 10; // Maximo de conexiones simultaneas
+		int maximoConexiones = 30;
 		ServerSocket servidor = null;
 		Socket socket = null;
 		leerArchios();
@@ -54,10 +60,10 @@ public class Servidor {
 			mensajesUsuarios = new MensajesUsuarios();
 			EscucharUsuarios escuchar = new EscucharUsuarios(this);
 			escuchar.start();
-			// Bucle infinito para esperar conexiones
 
 			while (true) {
 				System.out.println("Servidor a la espera de conexiones.");
+				
 				socket = servidor.accept();
 				System.out.println("Cliente con la IP " + socket.getInetAddress().getHostName() + " conectado.");
 
@@ -104,16 +110,22 @@ public class Servidor {
 		return listaUsuarios;
 	}
 
+	/*
+	 * verifica que el usuario y contraceña estan registradas en el sistema
+	 */
 	public boolean verificarUser(String id, String contrasena) {
 		Usuario user = darUsuario(id);
 		if (user != null) {
 			if (user.getContrasena().equals(contrasena))
-				if (user.getEstado().equals("En linea")) {
-					return true;
-				}
+				return true;
 		}
 		return false;
 	}
+	
+
+	/*
+	 * Rerorna el usuario que tenga ese id
+	 */
 	public Usuario darUsuario(String id) {
 
 		for (Usuario user : listaUsuarios) {
@@ -123,7 +135,25 @@ public class Servidor {
 		}
 		return null;
 	}
+	
+	/*
+	 * Rerorna la posicion del Usuario en la lista
+	 */
+	public int posUsuario(String id) {
+		int pos=-1;
+		for (Usuario user : listaUsuarios) {
+			pos++;
+			if (user.getId().equals(id)) {
+				return pos;
+			}
+		}
+		return -1 ;
+	}
 
+
+	/*
+	 * Rerorna la posicion del chat en la lista
+	 */
 	public int posChat(String codigoChat) {
 		int pos = 0;
 
@@ -136,6 +166,10 @@ public class Servidor {
 		return -1;
 	}
 
+
+	/*
+	 * Rerorna chat que tenga ese codigo
+	 */
 	public Chat darChat(String codigoChat) {
 
 		for (Chat chat : listaChatTotal) {
@@ -145,7 +179,10 @@ public class Servidor {
 		}
 		return null;
 	}
-
+	
+	/*
+	 * Actualiza los nuevos datos en el archivo xml
+	 */
 	public void actualizarListaChats() {
 
 		CrearXml c = new CrearXml(System.getProperty("user.dir") + "/src/documentos/ListaChat.xml");
@@ -156,7 +193,10 @@ public class Servidor {
 			System.out.println("Error lista no actualizada");
 		}
 	}
-
+	
+	/*
+	 * Actualiza los nuevos datos en el archivo xml
+	 */
 	public void actualizarListaUsuario() {
 
 		CrearXml c = new CrearXml(System.getProperty("user.dir") + "/src/documentos/ListaUsuario.xml");

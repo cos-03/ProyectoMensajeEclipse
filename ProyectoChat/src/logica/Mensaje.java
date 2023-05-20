@@ -1,38 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logica;
 
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
- * @author ACER
+ * Mensajes del chat
+ * @author Juan David Cortes Cortes
+ * @author Santiago Acero Ospina
  */
-public class Mensaje {
+public class Mensaje{
     private String remitente;
     private String destinatario;
     private String codigoChat;
     private String contenido;
     private String fecha;
-    private boolean visto;
-
-    public Mensaje(String id, String contenido, boolean vist, String fecha) {
+    private String visto; 
+    
+    public Mensaje(String id, String contenido, String fecha, String vist) {
         this.codigoChat = id;
         this.contenido = contenido;
-        this.fecha = fecha;
-        this.visto = vist;
+        String dataHora[]=fecha.split("_");
+        String hora[]=dataHora[1].split("/");
+        this.fecha=dataHora[0]+"_"+hora[0]+":"+hora[1];
+        this.visto= String.valueOf(vist);
     }
-
-    public Mensaje(String id, String contenido, boolean vist) {
-        this.codigoChat = id;
-        this.contenido = contenido;
-        this.fecha = "" + new Timestamp(new Date().getTime());
-        this.visto = vist;
-    }
-
+    
+    
     public void setRemitente(String remitente) {
         this.remitente = remitente;
     }
@@ -52,7 +44,7 @@ public class Mensaje {
     public String getDestinatario() {
         return destinatario;
     }
-
+    
     public String getContenido() {
         return contenido;
     }
@@ -62,17 +54,21 @@ public class Mensaje {
     }
 
     public boolean isVisto() {
-        return visto;
+        return Boolean.parseBoolean(visto);
     }
 
-    public void setVisto(boolean visto) {
+    public void setVisto(String visto) {
         this.visto = visto;
     }
-
-    @Override
-    public String toString() {
-        return "Mensaje{" + "remitente=" + remitente + ", destinatario=" + destinatario + ", codigoChat=" + codigoChat + ", contenido=" + contenido + ", fecha=" + fecha + '}';
+    
+    public String darMensaje() {
+        return "#:"+remitente+";"+contenido+";"+destinatario+";"+fecha+";"+visto;
     }
 
 
+
+
+
+
+    
 }

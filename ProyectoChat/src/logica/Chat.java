@@ -8,7 +8,9 @@ package logica;
 import java.util.ArrayList;
 
 /**
- * @author ACER
+ * Esta clase representa un chat.
+ *
+ * @author Felipe Valencia
  */
 public class Chat {
     private String codigo;
@@ -30,6 +32,8 @@ public class Chat {
     public void setListaMensajes(ArrayList<Mensaje> listaMensajes) {
         this.listaMensajes = listaMensajes;
     }
-
-
+    
+    
+    
+    
 }

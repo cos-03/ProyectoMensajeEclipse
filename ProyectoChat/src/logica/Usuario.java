@@ -6,8 +6,11 @@
 package logica;
 
 /**
- * @author ACER
+ *Esta clase representa a los diferentes personas del chat
+ * @author Felipe Valencia
  */
+
+
 public class Usuario {
     private String name;
     private String ip;
@@ -15,22 +18,15 @@ public class Usuario {
     private String id;
     private String estado;
 
-    public Usuario(String name, String id, String estado) {
-        this.name = name;
-        this.image = "C:\\Users\\ACER\\eclipse-workspace\\ProyectoMensajeEclipse\\src\\documentos/Enviado_1.jpg";
-        this.id = id;
-        this.estado = estado;
-    }
-
-    public Usuario(String name, String ip, String id, String estado) {
+     public Usuario(String name, String ip, String id, String estado) {
         this.name = name;
         this.ip = ip;
         this.id = id;
         this.estado = estado;
-        this.image = "C:\\Users\\ACER\\eclipse-workspace\\ProyectoMensajeEclipse\\src\\documentos/Enviado_1.jpg";
+        this.image=System.getProperty("user.dir")+"/src/documentos/avatar-chat.png";
     }
-
-
+    
+    
     public String getName() {
         return name;
     }
@@ -46,6 +42,7 @@ public class Usuario {
     public String getImage() {
         return image;
     }
+    
 
     public String getEstado() {
         return estado;
@@ -55,10 +52,16 @@ public class Usuario {
         this.estado = estado;
     }
 
-    @Override
+    
+    public void setImage(String image) {
+		this.image = image;
+	}
+
+
+	@Override
     public String toString() {
-        return "Usuario{" + "name=" + name + ", ip=" + ip + ", image=" + image + ", id=" + id + ", estado=" + estado + ", historialMensajes=" + '}';
+        return "Usuario{" + "name=" + name + ", ip=" + ip + ", image=" + image + ", id=" + id + ", estado=" + estado + ", historialMensajes=" +'}';
     }
-
-
+    
+    
 }

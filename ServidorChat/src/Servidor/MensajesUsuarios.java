@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Servidor;
+
+/**
+ * Esta clase cumple la funcion tuberia entre ConexionChat y EscucharUsuario.
+ * @author Felipe Valencia
+ */
 public class MensajesUsuarios {
     
 	private boolean mensajeNuevo=false;

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Servidor;
 
 import java.io.IOException;
@@ -10,9 +6,10 @@ import java.util.ArrayList;
 
 
 /**
- *
- * @author ACER
- */
+ *      Esta clase cumple la funcion escuchar y enviar  los mensajes de los clientes.
+		*
+		**@author Felipe Valencia
+		**/
 public class EscucharUsuarios extends Thread {
 
 	private MensajesUsuarios mensajesUsuarios;
@@ -52,19 +49,6 @@ public class EscucharUsuarios extends Thread {
 							cc.getSalidaDatos().writeObject(obj);
 						} catch (IOException e) {
 							e.printStackTrace();
-						}
-					}
-				}else if(listaPalabras[0].equals("!")) {
-					for (ConexionChat cc : listaHilos) {
-						if (cc.isConectado()) {
-							if (!cc.getUser().getId().equals(listaPalabras[1])) {
-								try {
-									cc.getSalidaDatos().writeObject(obj);
-								} catch (IOException ex) {
-									System.out.println(ex);
-								}
-								System.out.println(obj+" Enviado a "+cc.getUser().getName());
-							}
 						}
 					}
 				}

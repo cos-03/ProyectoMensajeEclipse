@@ -16,11 +16,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException; 
+import org.xml.sax.SAXException;
 
 /**
- *
- * @author ACER
+ * Lee los archivos xml
+ * @author Felipe Valencia
  */
 public class LeerXml {
     
@@ -34,7 +34,10 @@ public class LeerXml {
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         doc = docBuilder.parse(file);
     }
-            
+    
+    /*
+     * Lee el archivo xml y llena los datos en un arraylist
+     */
     public ArrayList<Chat> leerListaChats() {
         ArrayList<Chat> lista = new ArrayList<>();
         doc.getDocumentElement().normalize();
@@ -69,6 +72,9 @@ public class LeerXml {
         return lista;
     }
  
+    /*
+     * Lee el archivo xml y llena los datos en un arraylist
+     */
     public ArrayList<Usuario> leerListaUsuarios(){
 
         ArrayList<Usuario> lista = new ArrayList<>();
@@ -88,18 +94,5 @@ public class LeerXml {
             }
         }
         return lista;
-    }
-    
-    public Usuario leerUsuario() {
-        
-        doc.getDocumentElement().normalize();
-        Element raiz = doc.getDocumentElement();
-        Usuario user;
-        String id =raiz.getAttribute("id");
-        String estado = raiz.getElementsByTagName("estado").item(0).getTextContent();
-        String name = raiz.getElementsByTagName("name").item(0).getTextContent();
-        String image = raiz.getElementsByTagName("imagen").item(0).getTextContent();
-        user = new Usuario(name, image, id, estado);
-        return user;
     }
 }
