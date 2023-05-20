@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ConfiguracionController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="300.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="114.0" prefWidth="300.0" text="Eliminar cuenta">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="300.0" text="Id Usuario" />
+            <TextField fx:id="idUsuario">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="310.0" text="Contraseña" />
+            <TextField fx:id="contraAnti">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox prefHeight="65.0" prefWidth="300.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#EventoEliminarCuenta" prefHeight="31.0" prefWidth="137.0" text="Eliminar cuenta">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="83.0" right="83.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
